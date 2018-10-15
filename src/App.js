@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import Forms from './Forms/Forms';
 
 class App extends Component {
   constructor () {
@@ -30,6 +30,8 @@ class App extends Component {
         >
           <p>{this.state.mouseX}, {this.state.mouseY}</p>
         </div>
+        <h4>Forms</h4>
+        <Forms />
       </div>
     );
   }
