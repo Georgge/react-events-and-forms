@@ -1,17 +1,21 @@
 import React, { Component } from 'react'
 
 export default class Forms extends Component {
-  handleClick = (e) => {
+  handleSubmit = (e) => {
     e.preventDefault()
     const name = this.inputName.value;
     const email = this.inputEmail.value;
     console.log(name, email);
   }
+  handleChange (e) {
+    console.log('handleChange');
+    console.log(e.target.checked);
+  }
   render () {
     return (
       <div>
         <h4>Form Example</h4>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <p>
             <label htmlFor='name'>Name: </label>
             <input
@@ -30,8 +34,14 @@ export default class Forms extends Component {
               ref={inputElement => this.inputEmail = inputElement}
             />
           </p>
+          <p>
+            <label>
+              <input onChange={this.handleChange} type='checkbox' />
+              Accepted terms
+            </label>
+          </p>
 
-          <button onClick={this.handleClick}>Send</button>
+          <button>Send</button>
         </form>
       </div>
     )
