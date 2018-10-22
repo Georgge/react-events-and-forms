@@ -13,7 +13,7 @@ export default class Forms extends Component {
         <h4>Form Example</h4>
         <form>
           <p>
-            <label>Name: </label>
+            <label htmlFor='name'>Name: </label>
             <input
               id='name'
               name='userName'
@@ -21,7 +21,7 @@ export default class Forms extends Component {
             />
           </p>
           <p>
-            <label>Email</label>
+            <label htmlFor='email'>Email</label>
             <input
               id='email'
               name='email'
