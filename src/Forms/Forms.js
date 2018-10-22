@@ -1,15 +1,23 @@
 import React, { Component } from 'react'
 
 export default class Forms extends Component {
+  constructor () {
+    super();
+    this.state = {
+      inputName: '',
+      inputEmail: '@mail.com',
+      inputTerms: true,
+    }
+  }
+
   handleSubmit = (e) => {
     e.preventDefault()
-    const name = this.inputName.value;
-    const email = this.inputEmail.value;
-    console.log(name, email);
+    console.log(this.state);
   }
-  handleChange (e) {
+  handleChange = (e) => {
     console.log('handleChange');
     console.log(e.target.checked);
+    this.setState({ inputTerms: e.target.checked });
   }
   render () {
     return (
@@ -23,6 +31,8 @@ export default class Forms extends Component {
               name='userName'
               placeholder='Your name here!'
               ref={inputElement => this.inputName = inputElement}
+              onChange={e => this.setState({ inputName: e.target.value })}
+              value={this.state.inputName}
             />
           </p>
           <p>
@@ -32,11 +42,17 @@ export default class Forms extends Component {
               name='email'
               placeholder='Your email here'
               ref={inputElement => this.inputEmail = inputElement}
+              onChange={e => this.setState({ inputEmail: e.target.value })}
+              value={this.state.inputEmail}
             />
           </p>
           <p>
             <label>
-              <input onChange={this.handleChange} type='checkbox' />
+              <input
+                onChange={this.handleChange}
+                type='checkbox'
+                checked={this.state.inputTerms}
+              />
               Accepted terms
             </label>
           </p>
